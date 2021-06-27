@@ -109,6 +109,7 @@ static Key keys[] = {
 	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol } },
 	{ 0,                       XF86XK_MonBrightnessUp, spawn, {.v = brightup } },
 	{ 0,                       XF86XK_MonBrightnessDown, spawn, {.v = brightdown } },
+	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
 
 };
 
