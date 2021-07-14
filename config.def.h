@@ -48,6 +48,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -105,11 +106,15 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
-	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
+	{ 0,                       XF86XK_AudioMute, spawn,        {.v = mutevol } },
 	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol } },
-	{ 0,                       XF86XK_MonBrightnessUp, spawn, {.v = brightup } },
-	{ 0,                       XF86XK_MonBrightnessDown, spawn, {.v = brightdown } },
+	{ 0,                       XF86XK_MonBrightnessUp, spawn,  {.v = brightup } },
+	{ 0,                       XF86XK_MonBrightnessDown, spawn,{.v = brightdown } },
 	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
+	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
+	{ ALTKEY,                       XK_Next, spawn,            SHCMD("playerctl play-pause") },
+	{ ALTKEY,                       XK_End, spwan,             SHCMD("playerctl previous") },
+	{ ALTKEY,                       XK_Prior, spwan            SHCMD("playerctl next")}
 
 };
 
