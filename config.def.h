@@ -113,8 +113,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
 	{ ALTKEY,                       XK_Next, spawn,            SHCMD("playerctl play-pause") },
-	{ ALTKEY,                       XK_End, spwan,             SHCMD("playerctl previous") },
-	{ ALTKEY,                       XK_Prior, spwan            SHCMD("playerctl next")}
+	{ ALTKEY,                       XK_End, spawn,             SHCMD("playerctl previous") },
+	{ ALTKEY,                       XK_Prior, spawn,           SHCMD("playerctl next") }
 
 };
 
