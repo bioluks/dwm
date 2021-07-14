@@ -112,9 +112,9 @@ static Key keys[] = {
 	{ 0,                       XF86XK_MonBrightnessDown, spawn,{.v = brightdown } },
 	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
-	{ ALTKEY,                       XK_Next, spawn,            SHCMD("playerctl next") },
+	{ ALTKEY,                       XK_Next, spawn,            SHCMD("playerctl play-pause") },
 	{ ALTKEY,                       XK_End, spawn,             SHCMD("playerctl previous") },
-	{ ALTKEY,                       XK_Prior, spawn,           SHCMD("playerctl play-pause") }
+	{ ALTKEY,                       XK_Prior, spawn,           SHCMD("playerctl next") }
 
 };
 
