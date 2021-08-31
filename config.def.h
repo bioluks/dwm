@@ -23,7 +23,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "[www]", "2", "3", "4", "5", "6", "🔥", "8", "🎵" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -124,6 +124,8 @@ static Key keys[] = {
 	{ ALTKEY,                       XK_Next, spawn,            SHCMD("playerctl --player spotify next") },
 	{ ALTKEY,                       XK_End, spawn,             SHCMD("playerctl --player spotify previous") },
 	{ ALTKEY,                       XK_Prior, spawn,           SHCMD("playerctl --player spotify play-pause") },
+	{ MODKEY,						XK_w,      spawn, 	       SHCMD("librewolf") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("pcmanfm-qt") },
 
 };
 
