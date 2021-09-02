@@ -124,6 +124,9 @@ static Key keys[] = {
 	{ ALTKEY,                       XK_Next, spawn,            SHCMD("playerctl --player spotify next") },
 	{ ALTKEY,                       XK_End, spawn,             SHCMD("playerctl --player spotify previous") },
 	{ ALTKEY,                       XK_Prior, spawn,           SHCMD("playerctl --player spotify play-pause") },
+	{ ALTKEY|ShiftMask,             XK_Next, spawn,            SHCMD("playerctl next") },
+	{ ALTKEY|ShiftMask,             XK_End, spawn,             SHCMD("playerctl previous") },
+	{ ALTKEY|ShiftMask,             XK_Prior, spawn,           SHCMD("playerctl play-pause") },
 	{ MODKEY,						XK_w,      spawn, 	       SHCMD("librewolf") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("pcmanfm-qt") },
 
