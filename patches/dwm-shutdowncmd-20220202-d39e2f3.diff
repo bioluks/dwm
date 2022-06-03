@@ -1,0 +1,30 @@
+--- a/config.def.h
++++ b/config.def.h
+@@ -58,6 +58,7 @@ static const Layout layouts[] = {
+ /* commands */
+ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
++static const char *shutdowncmd[]  = { "sudo", "shutdown", "+0", NULL };
+ static const char *termcmd[]  = { "st", NULL };
+ 
+ static Key keys[] = {
+@@ -95,6 +95,7 @@ static Key keys[] = {
+ 	TAGKEYS(                        XK_8,                      7)
+ 	TAGKEYS(                        XK_9,                      8)
+ 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
++	{ MODKEY|ShiftMask,             XK_Escape, spawn,          {.v = shutdowncmd} },
+ };
+ 
+ /* button definitions */
+--- a/dwm.1
++++ b/dwm.1
+@@ -142,6 +142,9 @@ Add/remove all windows with nth tag to/from the view.
+ .TP
+ .B Mod1\-Shift\-q
+ Quit dwm.
++.TP
++.B Mod1\-Shift\-Esc
++Shutdown (sudo shutdown +0).
+ .SS Mouse commands
+ .TP
+ .B Mod1\-Button1
