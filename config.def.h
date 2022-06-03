@@ -85,6 +85,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *shutdowncmd[]  = { "sudo", "shutdown", "+0", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+
 static const char *brightup[]       = { "xbacklight", "-inc", "10", NULL};
 static const char *brightdown[]     = { "xbacklight", "-dec", "10", NULL};
 
@@ -133,7 +137,12 @@ static Key keys[] = {
 	{ 0,                       XF86XK_MonBrightnessUp, spawn,  {.v = brightup } },
 	{ 0,                       XF86XK_MonBrightnessDown, spawn,{.v = brightdown } },
 	{ MODKEY,						XK_w,      spawn, 	       SHCMD("librewolf") },
-	{ 0,                       XF86XK_Explorer,      spawn,       SHCMD("pcmanfm") },
+	{ 0,                       XF86XK_Explorer,      spawn,    SHCMD("pcmanfm") },
+	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,                       XF86XK_AudioMute, spawn,        {.v = mutevol } },
+	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol } },
+	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
+	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
 };
 
 /* button definitions */
