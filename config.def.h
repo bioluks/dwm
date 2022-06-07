@@ -82,7 +82,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *shutdowncmd[]  = { "sudo", "shutdown", "+0", NULL };
+static const char *shutdowncmd[]  = { "loginctl", "poweroff", "+0", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
@@ -90,8 +90,8 @@ static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%"
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute", "0", "toggle",  NULL };
 
-static const char *brightup[]       = { "xbacklight", "-inc", "10", NULL};
-static const char *brightdown[]     = { "xbacklight", "-dec", "10", NULL};
+static const char *brightup[]       = { "xbacklight", "-inc", "5", NULL};
+static const char *brightdown[]     = { "xbacklight", "-dec", "5", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -145,6 +145,12 @@ static Key keys[] = {
 	{ 0,                       XF86XK_AudioMicMute, spawn,     {.v = mutemic } },
 	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
+/*	{ XF86XK_WakeUp,           XF86XK_Display, spawn,          SHCMD("playerctl --player spotify previous") }, */
+/*	{ XF86XK_WakeUp,           XF86XK_WLAN, spawn,             SHCMD("playerctl --player spotify play-pause") }, */
+/*	{ XF86XK_WakeUp,           XF86XK_Tools, spawn,            SHCMD("playerctl --player spotify next") }, */
+/*	{ XF86XK_WakeUp|ShiftMask, XF86XK_Display, spawn,          SHCMD("playerctl previous") }, */
+/*	{ XF86XK_WakeUp|ShiftMask, XF86XK_WLAN, spawn,             SHCMD("playerctl play-pause") }, */
+/*	{ XF86XK_WakeUp|ShiftMask, XF86XK_Tools, spawn,            SHCMD("playerctl next") } */
 };
 
 /* button definitions */
