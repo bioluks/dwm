@@ -38,8 +38,8 @@ static const char ptagf[] = "[%s %s]";	/* format of a tag label */
 static const char etagf[] = "[%s]";	/* format of an empty tag */
 static const int lcaselbl = 0;		/* 1 means make tag label lowercase */	
 
-static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
+static const unsigned int ulinepad	= 10;	/* horizontal padding between the underline and tag */ /* DEFAULT: 5 */
+static const unsigned int ulinestroke	= 1;	/* thickness / height of the underline */ /* DEFAULT: 2 */
 static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
 static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
