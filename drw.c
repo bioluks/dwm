@@ -140,11 +140,11 @@ xfont_create(Drw *drw, const char *fontname, FcPattern *fontpattern)
 	 * https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=916349
 	 * and lots more all over the internet.
 	 */
-	FcBool iscol;
+/*	FcBool iscol;
 	if(FcPatternGetBool(xfont->pattern, FC_COLOR, 0, &iscol) == FcResultMatch && iscol) {
 		XftFontClose(drw->dpy, xfont);
 		return NULL;
-	}
+	} */ /* Starting from "FcBool" this part is blocked for the colored emojis and fonts to work, make sure you have libxft-bgra installed! */
 
 	font = ecalloc(1, sizeof(Fnt));
 	font->xfont = xfont;
