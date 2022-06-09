@@ -15,7 +15,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const int focusonwheel       = 0;
+static const int focusonwheel       = 0;        /* If this is "0", it will take advantage of the patch 'focusonclick', if "1" it will disable the patch. */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
@@ -157,6 +157,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_minus, 		setborderpx,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_plus, 		setborderpx,    {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_numbersign, 	setborderpx,    {.i = 0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
