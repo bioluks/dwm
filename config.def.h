@@ -173,7 +173,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Escape, spawn,          {.v = shutdowncmd} },
 	{ 0,                       XF86XK_MonBrightnessUp, spawn,  {.v = brightup } },
 	{ 0,                       XF86XK_MonBrightnessDown, spawn,{.v = brightdown } },
-	{ MODKEY,			XK_w,      spawn, 	   SHCMD("librewolf") },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("librewolf") },
 	{ 0,                       XF86XK_Explorer,      spawn,    SHCMD("pcmanfm") },
 	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                       XF86XK_AudioMute, spawn,        {.v = mutevol } },
@@ -181,6 +181,7 @@ static Key keys[] = {
 	{ 0,                       XF86XK_AudioMicMute, spawn,     {.v = mutemic } },
 	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
+	{ 0,                       XF86XK_Search, spawn,           SHCMD("rofi -show run")}
 /*	{ XF86XK_WakeUp,           XF86XK_Display, spawn,          SHCMD("playerctl --player spotify previous") }, */
 /*	{ XF86XK_WakeUp,           XF86XK_WLAN, spawn,             SHCMD("playerctl --player spotify play-pause") }, */
 /*	{ XF86XK_WakeUp,           XF86XK_Tools, spawn,            SHCMD("playerctl --player spotify next") }, */
