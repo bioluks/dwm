@@ -104,10 +104,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *shutdowncmd[]  = { "loginctl", "poweroff", "+0", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
-static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute", "0", "toggle",  NULL };
+/* static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL }; */
+/* static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL }; */
+/* static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL }; */
+/* static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute", "0", "toggle",  NULL }; */
 
 static const char *brightup[]       = { "xbacklight", "-inc", "5", NULL};
 static const char *brightdown[]     = { "xbacklight", "-dec", "5", NULL};
@@ -175,10 +175,14 @@ static Key keys[] = {
 	{ 0,                       XF86XK_MonBrightnessDown, spawn,{.v = brightdown } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("librewolf") },
 	{ 0,                       XF86XK_Explorer,      spawn,    SHCMD("pcmanfm") },
-	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
-	{ 0,                       XF86XK_AudioMute, spawn,        {.v = mutevol } },
-	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol } },
-	{ 0,                       XF86XK_AudioMicMute, spawn,     {.v = mutemic } },
+	/* { 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } }, */
+	/* { 0,                       XF86XK_AudioMute, spawn,        {.v = mutevol } }, */
+	/* { 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol } }, */
+	/* { 0,                       XF86XK_AudioMicMute, spawn,     {.v = mutemic } }, */
+	{ 0,                       XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,                       XF86XK_AudioMute, spawn,        SHCMD("pamixer --toggle-mute; kill -44 $(pidof dwmblocks)") },
+	{ 0,                       XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,                       XF86XK_AudioMicMute, spawn,     SHCMD("pamixer --default-source --toggle-mute; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
 	{ 0,                       XF86XK_Search, spawn,           SHCMD("rofi -show run")}
