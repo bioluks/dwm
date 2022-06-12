@@ -81,17 +81,18 @@ static const Layout layouts[] = {
 	{ NULL,       NULL },
 };
 
+/* Import XF86keysym */
+#include <X11/XF86keysym.h>
+
 /* key definitions */
 #define MODKEY Mod4Mask /* The Windows (SUPER) button */
 #define ALTKEY Mod1Mask /* aka the Left_ALT */
+#define FNKEY XF86XK_WakeUp /* The FN Button on ThinkPads */
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
-
-/* Imports */
-#include <X11/XF86keysym.h>
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -185,13 +186,13 @@ static Key keys[] = {
 	{ 0,                       XF86XK_AudioMicMute, spawn,     SHCMD("pamixer --default-source --toggle-mute; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
-	{ 0,                       XF86XK_Search, spawn,           SHCMD("rofi -show run")}
-/*	{ XF86XK_WakeUp,           XF86XK_Display, spawn,          SHCMD("playerctl --player spotify previous") }, */
-/*	{ XF86XK_WakeUp,           XF86XK_WLAN, spawn,             SHCMD("playerctl --player spotify play-pause") }, */
-/*	{ XF86XK_WakeUp,           XF86XK_Tools, spawn,            SHCMD("playerctl --player spotify next") }, */
-/*	{ XF86XK_WakeUp|ShiftMask, XF86XK_Display, spawn,          SHCMD("playerctl previous") }, */
-/*	{ XF86XK_WakeUp|ShiftMask, XF86XK_WLAN, spawn,             SHCMD("playerctl play-pause") }, */
-/*	{ XF86XK_WakeUp|ShiftMask, XF86XK_Tools, spawn,            SHCMD("playerctl next") } */
+	{ 0,                       XF86XK_Search, spawn,           SHCMD("rofi -show run")},
+//	{ FNKEY,                   XF86XK_Display, spawn,          SHCMD("playerctl --player spotify previous") },
+//	{ FNKEY,                   XF86XK_WLAN, spawn,             SHCMD("playerctl --player spotify play-pause") },
+//	{ FNKEY,                   XF86XK_Tools, spawn,            SHCMD("playerctl --player spotify next") },
+//	{ FNKEY|ShiftMask,         XF86XK_Display, spawn,          SHCMD("playerctl previous") },
+//	{ FNKEY|ShiftMask,         XF86XK_WLAN, spawn,             SHCMD("playerctl play-pause") },
+//	{ FNKEY|ShiftMask,         XF86XK_Tools, spawn,            SHCMD("playerctl next") },
 };
 
 /* button definitions */
