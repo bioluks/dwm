@@ -187,6 +187,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_gbreve, spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_udiaeresis, spawn,      SHCMD("touchpadtoggle") },
 	{ 0,                       XF86XK_Search, spawn,           SHCMD("rofi -show run")},
+	{ MODKEY|ShiftMask,        XF86XK_Search, spawn,           SHCMD("bwmenu")},
 //	{ FNKEY,                   XF86XK_Display, spawn,          SHCMD("playerctl --player spotify previous") },
 //	{ FNKEY,                   XF86XK_WLAN, spawn,             SHCMD("playerctl --player spotify play-pause") },
 //	{ FNKEY,                   XF86XK_Tools, spawn,            SHCMD("playerctl --player spotify next") },
